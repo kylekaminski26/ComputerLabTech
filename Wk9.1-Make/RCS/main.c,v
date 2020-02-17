@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2019.03.26.18.49.58;	author levyj63;	state Exp;
+branches;
+next	;
+
+
+desc
+@the main file
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@/* main routine of abprint program
+ */
+
+int main()
+{
+  int aprint(void);
+  int bprint(void);
+
+  aprint();
+  bprint();
+
+  return 0;
+}
+@

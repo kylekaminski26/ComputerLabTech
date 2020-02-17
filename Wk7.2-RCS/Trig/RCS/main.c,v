@@ -1,0 +1,117 @@
+head	1.5;
+access;
+symbols;
+locks
+	kaminskik6:1.4; strict;
+comment	@ * @;
+
+
+1.5
+date	2019.03.08.15.02.54;	author kaminskik6;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2019.03.08.15.00.05;	author kaminskik6;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2019.03.08.14.57.58;	author kaminskik6;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2019.03.08.14.52.36;	author kaminskik6;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2019.03.08.14.47.40;	author kaminskik6;	state Exp;
+branches;
+next	;
+
+
+desc
+@A program for trig functions
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@/* main.c - main section of "trig" project
+ *
+ * DFP
+ */
+
+#include <stdlib.h>
+
+static const char rcsid[] = "$Id$";
+
+int main(int argc, char *argv[])
+{
+  double angle;
+  void sine(double), cosine(double), tangent(double);
+
+  if (argc < 2) {
+      angle = 45.0;
+  } else {
+      //angle = (double) atof(argv[1]);
+      angle = strtod(argv[1], NULL);
+  }
+
+  double angleRad = angle * (3.14159/180);
+  sine(angleRad);
+  cosine(angleRad);
+  tangent(angleRad);
+
+  return 0;
+}
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d8 2
+@
+
+
+1.3
+log
+@converted degrees to radians
+@
+text
+@d20 1
+a20 1
+  double angleRad = angle * (3.14159/180)
+@
+
+
+1.2
+log
+@corrected misspelling of tangent
+@
+text
+@d20 4
+a23 3
+  sine(angle);
+  cosine(angle);
+  tangent(angle);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d11 1
+a11 1
+  void sine(double), cosine(double), tangen(double);
+@

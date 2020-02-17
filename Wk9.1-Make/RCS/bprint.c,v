@@ -1,0 +1,30 @@
+head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2019.03.26.18.49.45;	author levyj63;	state Exp;
+branches;
+next	;
+
+
+desc
+@bprint file
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include <stdio.h>
+
+void bprint()
+{
+  printf("The second letter is B.\n");
+}
+@

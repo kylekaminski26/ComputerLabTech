@@ -1,0 +1,29 @@
+# Makefile for AB Project
+#
+# D Provine and a room of sleepy people
+# 30 October 2018
+
+# Makefile contents:
+#
+#    TARGET : WHAT YOU NEED
+#     - TAB -> shell commands
+
+PROGRAM = abprint
+SOURCES = aprint.c bprint.c main.c
+OBJECTS = aprint.o bprint.o main.o
+INCLUDE = -I/usr/lib/gcc/x86_64-redhat-linux/3.4.6/include
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+
+.c.o : ; cc -c $<
+
+$(PROGRAM) : $(OBJECTS)
+	cc -o $@ $(OBJECTS)
+
+clean : ; /bin/rm -f $(PROGRAM) $(OBJECTS)
+
+depend : $(SOURCES)
+	makedepend $(INCLUDE) $(SOURCES)
+
+# DO NOT DELETE

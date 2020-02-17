@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks
+	kilroy:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2018.10.30.12.27.58;	author kilroy;	state Exp;
+branches;
+next	;
+
+
+desc
+@Part A of the AB project.
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include <stdio.h>
+
+void aprint()
+{
+  printf("The first letter is A.\n");
+}
+@

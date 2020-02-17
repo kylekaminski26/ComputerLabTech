@@ -1,0 +1,46 @@
+// AMPM Logic
+
+void show(struct tm *dateinfo, int ampm)
+{
+  char timestring[9];
+
+    // TODO: handle "ampm" setting
+    //       You may want to create a new variable "hour",
+    //       and possibly an "ampmstring", to hold the results
+    //       of handling the ampm setting.
+
+
+    int hour = dateinfo->tm_hour;
+    int ampmstring = dateinfo->tm_hour;
+
+    if (ampm) { // If 12 hour clock
+      if (hour > 12) // If 1PM or later
+        hour %= 12; // Round back to 1 o'clock
+      if (hour == 0) // If midnight
+        hour = 12; // Change 0 o'clock to 12 o'clock
+      sprintf(timestring, // Print time
+            "%02d:%02d:%02d",
+            hour,
+            dateinfo->tm_min,
+            dateinfo->tm_sec);
+      printf("\r%s ", timestring);
+    }
+    else { // If 24 hour clock
+    sprintf(timestring, // Print time
+            "%02d:%02d:%02d",
+            dateinfo->tm_hour,
+            dateinfo->tm_min,
+            dateinfo->tm_sec);
+    printf("\r%s ", timestring);
+    }
+
+     if (ampm) { // If 12 hour clock
+      if (ampmstring < 12) // Morning, 12 hour clock
+        printf("AM");
+      else // Afternoon, 12 hour clock
+        printf("PM");
+    }
+
+    fflush(stdout);
+}
+

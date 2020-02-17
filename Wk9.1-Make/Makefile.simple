@@ -1,0 +1,46 @@
+# Makefile for AB Project
+#
+# D Provine and a room of sleepy people
+# 30 October 2018
+
+# Makefile contents:
+#
+#    TARGET : WHAT YOU NEED
+#     - TAB -> shell commands
+
+abprint : aprint.o bprint.o main.o
+	cc -o abprint aprint.o bprint.o main.o
+
+aprint.o : aprint.c
+	cc -c aprint.c
+
+bprint.o : bprint.c
+	cc -c bprint.c
+
+main.o : main.c
+	cc -c main.c
+
+clean : ; /bin/rm -f abprint *.o
+
+# DO NOT DELETE
+
+aprint.o: /usr/include/stdio.h /usr/include/bits/libc-header-start.h
+aprint.o: /usr/include/features.h /usr/include/stdc-predef.h
+aprint.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+aprint.o: /usr/include/bits/long-double.h /usr/include/gnu/stubs.h
+aprint.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+aprint.o: /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h
+#aprint.o: /usr/include/bits/libio.h
+#/usr/include/bits/_G_config.h
+aprint.o: /usr/include/bits/types/__mbstate_t.h /usr/include/bits/stdio_lim.h
+aprint.o: /usr/include/bits/sys_errlist.h
+bprint.o: /usr/include/stdio.h /usr/include/bits/libc-header-start.h
+bprint.o: /usr/include/features.h /usr/include/stdc-predef.h
+bprint.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+bprint.o: /usr/include/bits/long-double.h /usr/include/gnu/stubs.h
+bprint.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+bprint.o: /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h
+#bprint.o: /usr/include/bits/libio.h
+#/usr/include/bits/_G_config.h
+bprint.o: /usr/include/bits/types/__mbstate_t.h /usr/include/bits/stdio_lim.h
+bprint.o: /usr/include/bits/sys_errlist.h

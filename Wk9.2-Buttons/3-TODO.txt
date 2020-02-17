@@ -1,0 +1,37 @@
+DIGITAL CLOCK TO-DO LIST
+
+USING REVISION CONTROL:
+
+1) Run "mkdir RCS".
+
+Before making changes to a file, check it in.  When you get the new
+version working and are happy with what it does, check that one in.
+
+Among other things, if you manage to screw something up, you can check
+out the previous revision and be back to something that works.
+
+
+CHANGES TO "clock.c":
+
+2) add a character array with name like "title_text", and fill it with
+   78 characters so it looks nice and has your name in it.  (We'll put
+   it in the title bar later.)
+
+
+3) Look at the "process_key()" and "stop_clock()" functions to see what
+   they do.
+
+
+4) starting the display is more complex.  Read the new controller code
+   carefully to see what it does.
+
+   (Note that you don't actually need those set_key_text() lines, I
+   just put those in so you'd have an example to look at.  If you don't
+   use the second row of keys, you should take those out.)
+
+
+5) The loop that runs forever either uses pause(), or get_key(), to
+   wait for a keystroke.
+
+
+
