@@ -1,0 +1,32 @@
+* We are only primarily concerned with the 5 Expansion steps (they're the BIG ones) mentioned in class, but if you’d like some context for the process, read below *
+
+Prior to Command Line Processing:
+The Commandline is read in by the Shell
+*HISTORY EXPANSION PERFORMED HERE*
+
+Any history substitutions that need to be applied are performed and then processing of the line begins
+
+*All of the following steps come directly from “Learning the Bash Shell, 3rd Edition” published by (you may have guessed) O’Reilly Media.   
+
+1. Splits the command into tokens that are separated by the fixed set of metacharacters: SPACE, TAB, NEWLINE, ;, (, ), <, >, |, and &. Types of tokens include words, keywords, I/O redirectors, and semicolons. 
+
+2. Checks the first token of each command to see if it is a keyword with no quotes or backslashes. If it's an opening keyword, such as if and other control-structure openers, function, {, or (, then the command is actually a compound command. The shell sets things up internally for the compound command, reads the next command, and starts the process again. If the keyword isn't a compound command opener (e.g., is a control-structure "middle" like then, else, or do, an "end" like fi or done, or a logical operator), the shell signals a syntax error.
+
+ 3. Checks the first word of each command against the list of aliases. If a match is found, it substitutes the alias's definition and goes back to Step 1; otherwise, it goes on to Step 4. This scheme allows recursive aliases.   It also allows aliases for keywords to be defined, e.g., alias aslongas=while or alias procedure=function.
+
+ 4. Performs brace expansion. For example, a{b,c} becomes ab ac. 
+
+5. Substitutes the user's home directory ($HOME) for tilde if it is at the beginning of a word. Substitutes user's home directory for ~user. 
+
+6. Performs parameter (variable) substitution for any expression that starts with a dollar sign ($). 
+
+7. Does command substitution for any expression of the form $(string). 
+
+8. Evaluates arithmetic expressions of the form $((string)). 
+
+9. * Word Splitting Step (Part 2)* Takes the parts of the line that resulted from parameter, command, and arithmetic substitution and splits them into words again. This time it uses the characters in $IFS as delimiters instead of the set of metacharacters in Step 1. 
+
+10. Performs pathname expansion, a.k.a. wildcard expansion, for any occurrences of *, ?, and [/] pairs. 
+11. Uses the first word as a command by looking up its source according to the rest of the list in   Chapter 4, i.e., as a function command, then as a built-in, then as a file in any of the directories in $PATH. 
+
+12. Runs the command after setting up I/O redirection and other such things.  

@@ -1,0 +1,53 @@
+Bash History Expansion Notes
+This happens first "right after the line has been read but before the line has been split into words" which is technically the first step of processing the command line (tokenization)
+
+History Expansion is a mechanism provided by the Bash Shell to help re-run previously entered commands.  It is a feature that was introduced in the C shell and BASH has brought it in as well due to its widespread popularity. 
+
+
+Its popular because its easy and frequently used to in order to repeat and re-run previous commands.  Its also easy to re-run and fix the most recently entered (or any previously entered) command.
+
+commands are recalled using *event designators* 
+!  begins history sub
+!! recall and rerun previous command
+!n recall command line n
+!-n refer to current command number minus n
+!string  recall the most  recent command starting with string
+!?string?  recall the most recent *containing* string, ? at end is optional
+^string1^string2 repeat last command replacing string1 with string2
+
+Command numbers can be retrieved with the *history* command
+
+
+We can refer to specific words with *word designators*.  Counting starts from 0.
+
+0 refers to first(zeroth) word of command
+n the nth word on a line
+^the first argument (second word)
+$ the last argument on the line
+%The word matched by the most recent ?string search
+x-y range of words from x to y
+* all words on a line (same as 1-$)
+x*  all words from x to last
+x- all words from x to second from last word
+
+Word designators follow event designators, separated by a :
+Example  !!:0 -> repeat previous command with different arguments (new arguments follow on command line)
+
+Lastly there are *modifiers* that follow any listed word designators
+
+h Removes a trailing pathname component, leaving the head
+r Removes a trailing suffix of the form .xxx 
+e Removes all but the trailing suffix 
+t Removes all leading pathname components, leaving the tail 
+p Prints the resulting command but doesn't execute it 
+q Quotes the substituted words, escaping further substitutions
+x Quotes the substituted words, breaking them into words at blanks and newlines 
+
+s/old/new/ Substitutes new for old
+
+more than one modifier may added, separated by :
+
+Note that this is not the same as the Fix Command Feature.  fc is a feature that is a superset of the history mechanism.  In other words, it utilizes the history expansion mechanism to accomplish its task of recalling the previous command to alter it.
+It allows for easy examination and editing via your favorite editor.  It allows you to view and possibly run multiple commands 
+
+it is often better to use the more modern editing modes with your preferred editor.
