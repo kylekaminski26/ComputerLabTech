@@ -1,0 +1,19 @@
+Script started on 2019-09-06 14:01:20-04:00 [TERM="xterm" TTY="/dev/pts/54" COLUMNS="80" LINES="24"]
+]0;kaminskik6@elvix2:~/Unix_HW_f19[kaminskik6@elvis Unix_HW_f19]$ pwd
+/home/kaminskik6/Unix_HW_f19
+]0;kaminskik6@elvix2:~/Unix_HW_f19[kaminskik6@elvis Unix_HW_f19]$ ls -ls
+total 4
+4 -rw------- 1 kaminskik6 domain users 428 Sep  6 14:01 about_me.txt
+0 -rw------- 1 kaminskik6 domain users   0 Sep  6 14:01 typescript
+]0;kaminskik6@elvix2:~/Unix_HW_f19[kaminskik6@elvis Unix_HW_f19]$ cat about_me.txt
+Preferred name: Kyle Kaminski
+Preferred pronouns: He/Him
+Fun thing about CS: creating my own programs and watching what they can do
+Worst thing about being a CS student: when the compiler does not tell you what line your error is on
+Hobby: Competitive Gaming and (potentially) creating games
+Book: 1984 by George Orwell
+Contact 1: Cole Tistan, tistanc1@students.rowan.edu
+Contact 2: Karl Cebulski, cebulskik3@students.rowan.edu
+]0;kaminskik6@elvix2:~/Unix_HW_f19[kaminskik6@elvis Unix_HW_f19]$ exit
+
+Script done on 2019-09-06 14:01:36-04:00 [COMMAND_EXIT_CODE="0"]
