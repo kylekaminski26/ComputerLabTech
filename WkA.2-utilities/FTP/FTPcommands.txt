@@ -1,0 +1,43 @@
+Using FTP (File Transfer Protocol)
+
+NOTE: Use the command "sftp", which uses the same commands but
+encrypts the connection.
+
+
+1) Connecting:
+
+    sftp username@that.machine.there.com
+
+
+2) Transferring files:
+
+    put name_of_file
+
+    get name_of_file
+
+   If a filename is illegal on the receiving machine, you can give
+   a name:
+
+       put local_name_of_file shortname
+
+   will take the file on your machine and give it the name "shortname"
+   on the other machine.  (Get can do the same thing.)
+
+
+      mput file_name_with_wildcards
+      mget file_name_with_wildcards
+
+   does the same as put/get, but you can put * or ? in the filename.
+   So you can "mget *.c" and get a bunch of files at once.
+
+
+3) Other commands
+
+    dir  - makes a list of files
+    cd   - change directory on remote machine
+    lcd  - change directory on local machine
+    lls  - list files on local machine
+
+    help - get help
+
+    quit - end session

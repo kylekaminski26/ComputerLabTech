@@ -1,0 +1,85 @@
+Using "tar" to pack and move files.
+The name is short for "Tape ARchive".
+
+
+SYNTAX:
+
+    tar COMMANDS [f filename] directory
+
+COMMANDS we care about:
+
+   c  - Create new archive
+   x  - eXtract from archive
+   v  - Verbose mode (list all files as stored / extracted)
+   f  - save to a File instead of using tape drive
+   t  - read Table of contents of tar file
+   z  - compress (not all versions)
+
+filename can be anything, usually ends with ".tar" so people know
+what it is.  (If using compression, end with ".tgz" or ".tar.gz".)
+
+Tar files compress very well with gzip; a file that ends with
+".tar.gz" or ".tgz" is a gzipped tar file.  Gunzip it before
+untarring it, unless using a version of tar that has a z flag.
+
+
+EXAMPLE:
+
+1) Creating a tar file:
+
+    tar cf ./homework2.tar homework2
+
+creates "homework2.tar" out of the folder "homework2" and all its
+subfolders.  (Note no hyphen before "cf" here; they aren't option
+flags, they're commands.)
+
+
+2) Unpacking a tar file:
+
+    tar xvf ShootyGame.tar
+
+Will unpack "ShootyGame.tar" and recreate the directory tree for
+all the files.  You'll see each operation as it happens.
+
+
+3) Seeing what's in a tar file:
+
+    tar tf foobar.tar
+
+will print out all the files archived in "foobar.tar".
+
+
+NOTES:
+
+1) If you use "-" for the filename, "c" writes to standard output,
+   and "x" reads from standard input.  This lets you pipe the
+   output/input of tar to some other program.
+
+   Since pipes work across the network, you can do something like
+   this:
+
+    elvis 5% tar cf - foobar | ssh me@foo.bar.com "cd /some/dir ; tar xf -"
+
+   foo.bar.com will ask for the account password, and then the two
+   tar processes will start running on the two different machines,
+   transferring an exact copy of the directory over the network.
+
+   Because this is a streaming process, you can copy a folder even if
+   you don't have enough disk space to hold the whole thing at once.
+
+
+   You can also do this to copy a directory, instead of using "cp -r".
+   The advantage to using tar is that the modification times on the
+   files will be preserved, whereas cp will create its copies all with
+   the current time as the modification time.
+
+
+2) Do not use a full pathname when you make a tarfile!  If you do this:
+   "tar cf foo.tar /export/home/potter01/foo", and then copy the file
+   to another machine, it might not unpack.  If the other machine does
+   not have "/export/home", but instead has "/usr/home", then tar may
+   not be able to create the directory and unpacking will fail.  (Some
+   versions of tar have flags to deal with this problem, but it's best
+   not to create the problem at all.)  Use relative pathnames, such as
+   "./foo".
+

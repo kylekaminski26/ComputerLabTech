@@ -1,0 +1,44 @@
+GDB Commands Summary:
+
+(Note: many commands can be abbreviated; "p" for "print",
+ "f" for "frame", "c" for "continue", &c.)
+
+run                  - run the program
+print VAR            - show the value of VAR
+set var VAR = VALUE  - set the value of VAR
+list [#]             - show the code centered on line #
+                       (number is optional; default is current position)
+
+break [file:]#       - set breakpoint at line #
+break FUNCTION       - set breakpoint for when function is called
+
+info breakpoints     - list all breakpoints
+disable NUM          - disable that breakpoint or watchpoint
+
+^C                   - stop the program right now
+
+watch VAR            - track VAR being written (command requires that
+                       the debugger be at a point where VAR is in scope)
+rwatch VAR           - only watch for reading
+awatch VAR           - watch for reading or writing
+
+continue             - keep going after a break
+
+step                 - execute the current line and go to the next one
+                       (if the line has a function call, will go into the
+                        function call)
+finish               - if in a function, finish it and return
+next                 - execute the current line and go to the next one
+                       (if the line has a function call, it will call the
+                        function but NOT go into it)
+
+where                - show stack trace
+up                   - go to higher numbered stack frame
+down                 - go to lowered numbered stack frame
+frame N              - go to frame #N
+
+
+info frame           - show stack position and arguments for current
+                       stack frame
+info locals          - show local variables
+info args            - show arguments to current stack frame
